@@ -11,8 +11,8 @@
     <p> {{product.summary}} </p>
   </div>
   <div class="col-3">
-    <a href="javascript:{document.getElementById('upvote').submit()};"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{product.votes_total}}</button></a>
-    <form id='upvote' method="POST" action="{% url 'detail' product.id %}">
+    <a href="javascript:{document.getElementById('upvote{{product.id}}').submit()};"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{product.votes_total}}</button></a>
+    <form id='upvote{{product.id}}' method="POST" action="{% url 'detail' product.id %}">
       {% csrf_token %}
       <input type="hidden"/>
     </form>
